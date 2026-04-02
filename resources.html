@@ -186,6 +186,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .access-message {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            margin: 1rem 3rem;
+            text-align: center;
+            color: var(--text-main);
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header {
@@ -200,6 +215,9 @@
             .page-title {
                 margin-bottom: 2rem;
             }
+            .access-message {
+                margin: 1rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -213,6 +231,10 @@
 
     <main class="main-content">
         <h1 class="page-title">Member Resources</h1>
+
+            <div class="access-message">
+        <p>You must be signed into your @members.sgf.co email to access online resources</p>
+    </div>
         
         <div class="resources-grid">
             <a href="#" class="resource-card">
@@ -220,8 +242,8 @@
                     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Meeting Rooms" class="resource-image">
                 </div>
                 <div class="resource-content">
-                    <h2 class="resource-title">Meeting Rooms</h2>
-                    <p class="resource-description">Book a conference room or private space for your next team meeting or client pitch.</p>
+                    <h2 class="resource-title">Resource Bookings</h2>
+                    <p class="resource-description">Book a hot desk, conference room or private space for your next team meeting or project.</p>
                 </div>
             </a>
 

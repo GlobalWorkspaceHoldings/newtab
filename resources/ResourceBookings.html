@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGF.work | Template</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oii6upi.css?display=swap">
+
+    <style>
+        :root {
+            --primary-color: #000000;
+            --accent-color: #000000;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --bg-color: #f0f2f5;
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-hover: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --glass-blur: blur(16px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            font-family: "area", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(200, 200, 200, 0.2) 0%, transparent 50%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 3rem;
+            animation: fadeInDown 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .brand-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-logo-img {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 3rem 4rem;
+            animation: fadeIn 1s ease-out 0.2s forwards;
+            opacity: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            font-family: "area-normal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        
+        .content-card {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            width: 100%;
+            box-shadow: var(--glass-shadow);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        
+        .content-card h2 {
+            font-family: "area-normal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .content-card p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .back-link {
+            margin-top: 4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: bold;
+            transition: color 0.3s ease;
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            background: var(--glass-bg-hover);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem;
+            }
+            .main-content {
+                padding: 1rem 1.5rem 3rem;
+            }
+            .page-title {
+                margin-bottom: 1.5rem;
+            }
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="/" class="brand-logo-link">
+            <img src="https://sgf.work/.netlify/images?url=/logo.png&w=600" alt="SGF.work" class="brand-logo-img">
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Template Page</h1>
+        
+        <div class="content-card">
+            <h2>Section Title</h2>
+            <p>This is a template page that can be used as a starting point for new subpages. It includes the standard layout, fonts, and styling consistent with the rest of the application.</p>
+            <p>You can duplicate this file and replace the content within the <code>main-content</code> area to quickly build out new sections of your site.</p>
+        </div>
+
+        <a href="/" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Home
+        </a>
+    </main>
+
+</body>
+</html>
