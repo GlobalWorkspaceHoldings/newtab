@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGF.work | Member Resources</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oii6upi.css?display=swap">
+
+    <style>
+        :root {
+            --primary-color: #000000;
+            --accent-color: #000000;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --bg-color: #f0f2f5;
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-hover: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --glass-blur: blur(16px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            font-family: "area", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(200, 200, 200, 0.2) 0%, transparent 50%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 3rem;
+            animation: fadeInDown 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .brand-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-logo-img {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 3rem 4rem;
+            animation: fadeIn 1s ease-out 0.2s forwards;
+            opacity: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            font-family: "area-normal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .resource-card {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-main);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            background: var(--glass-bg-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--glass-border);
+            transition: transform 0.5s ease;
+        }
+
+        .resource-card:hover .resource-image {
+            transform: scale(1.05);
+        }
+        
+        .resource-img-container {
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .resource-title {
+            font-family: "area-normal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .resource-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .back-link {
+            margin-top: 4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: bold;
+            transition: color 0.3s ease;
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            background: var(--glass-bg-hover);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem;
+            }
+            .main-content {
+                padding: 1rem 1.5rem 3rem;
+            }
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="/" class="brand-logo-link">
+            <img src="https://sgf.work/.netlify/images?url=/logo.png&w=600" alt="SGF.work" class="brand-logo-img">
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Member Resources</h1>
+        
+        <div class="resources-grid">
+            <a href="#" class="resource-card">
+                <div class="resource-img-container">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Meeting Rooms" class="resource-image">
+                </div>
+                <div class="resource-content">
+                    <h2 class="resource-title">Meeting Rooms</h2>
+                    <p class="resource-description">Book a conference room or private space for your next team meeting or client pitch.</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-card">
+                <div class="resource-img-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Community Guidelines" class="resource-image">
+                </div>
+                <div class="resource-content">
+                    <h2 class="resource-title">Community Guidelines</h2>
+                    <p class="resource-description">Review our house rules and guidelines to ensure a great experience for everyone.</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-card">
+                <div class="resource-img-container">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Events Calendar" class="resource-image">
+                </div>
+                <div class="resource-content">
+                    <h2 class="resource-title">Events Calendar</h2>
+                    <p class="resource-description">Discover upcoming workshops, networking events, and community gatherings.</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-card">
+                <div class="resource-img-container">
+                    <img src="https://images.unsplash.com/photo-1588196749597-9ff0478934cd?auto=format&fit=crop&q=80&w=800" alt="Printer Setup" class="resource-image">
+                </div>
+                <div class="resource-content">
+                    <h2 class="resource-title">Printer Setup</h2>
+                    <p class="resource-description">Step-by-step instructions for connecting to the community printers and scanners.</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-card">
+                <div class="resource-img-container">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Perks & Discounts" class="resource-image">
+                </div>
+                <div class="resource-content">
+                    <h2 class="resource-title">Perks & Discounts</h2>
+                    <p class="resource-description">Explore exclusive offers and benefits available to our community members.</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-card">
+                <div class="resource-img-container">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800" alt="Support" class="resource-image">
+                </div>
+                <div class="resource-content">
+                    <h2 class="resource-title">Support & FAQ</h2>
+                    <p class="resource-description">Get help with internet, building access, or find answers to common questions.</p>
+                </div>
+            </a>
+        </div>
+
+        <a href="/" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Home
+        </a>
+    </main>
+
+</body>
+</html>
