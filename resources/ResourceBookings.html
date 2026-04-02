@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGF.work | Template</title>
+    <title>SGF.work | Reserve a Space</title>
     <link rel="stylesheet" href="https://use.typekit.net/oii6upi.css?display=swap">
 
     <style>
@@ -20,11 +20,7 @@
             --glass-blur: blur(16px);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body, html {
             min-height: 100vh;
@@ -81,11 +77,18 @@
             font-weight: 900;
             font-size: clamp(2.5rem, 5vw, 4rem);
             color: var(--primary-color);
-            margin-bottom: 2rem;
+            margin-bottom: 0.75rem;
             text-align: center;
             letter-spacing: -0.02em;
         }
-        
+
+        .page-subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+        }
+
         .content-card {
             background: var(--glass-bg);
             -webkit-backdrop-filter: var(--glass-blur);
@@ -97,22 +100,105 @@
             box-shadow: var(--glass-shadow);
             color: var(--text-main);
             line-height: 1.6;
+            margin-bottom: 1.25rem;
         }
-        
+
         .content-card h2 {
             font-family: "area-normal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .content-card p {
             margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .content-card p {
+            margin-bottom: 0;
             color: var(--text-muted);
         }
 
+        /* Steps */
+        .steps { display: flex; flex-direction: column; }
+
+        .step {
+            display: grid;
+            grid-template-columns: 38px 1fr;
+            gap: 0 1rem;
+            align-items: start;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .step:last-child { border-bottom: none; }
+
+        .step:not(:last-child) .step-num::after {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 54px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,0,0,0.07);
+        }
+
+        .step-num {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            margin-top: 0.1rem;
+        }
+
+        .step-body { padding-top: 0.4rem; }
+
+        .step-action {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        .step-action a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .step-detail {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* Tip */
+        .tip {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+
+        .tip-icon { flex-shrink: 0; font-size: 1rem; margin-top: 0.05rem; }
+
+        /* Back link */
         .back-link {
-            margin-top: 4rem;
+            margin-top: 2rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -144,20 +230,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .header {
-                padding: 1.5rem;
-            }
-            .main-content {
-                padding: 1rem 1.5rem 3rem;
-            }
-            .page-title {
-                margin-bottom: 1.5rem;
-            }
-            .content-card {
-                padding: 1.5rem;
-            }
+            .header { padding: 1.5rem; }
+            .main-content { padding: 1rem 1.5rem 3rem; }
+            .page-title { margin-bottom: 0.5rem; }
+            .content-card { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -170,12 +247,160 @@
     </header>
 
     <main class="main-content">
-        <h1 class="page-title">Template Page</h1>
-        
+        <h1 class="page-title">Reserve a Space</h1>
+        <p class="page-subtitle">Book a hot desk, office, or meeting room in a few quick steps.</p>
+
         <div class="content-card">
-            <h2>Section Title</h2>
-            <p>This is a template page that can be used as a starting point for new subpages. It includes the standard layout, fonts, and styling consistent with the rest of the application.</p>
-            <p>You can duplicate this file and replace the content within the <code>main-content</code> area to quickly build out new sections of your site.</p>
+            <h2>Step-by-Step Instructions</h2>
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body">
+                        <div class="step-action">Go to <a href="https://newtab.sgf.work" target="_blank">SGF.work New Tab</a></div>
+                        <div class="step-detail">Or open a new tab — it'll take you there automatically on your @members.sgf.co chrome profile.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">
+                        <div class="step-action">Click "Book a Room"</div>
+                        <div class="step-detail">Found in the bottom navigation bar of the new tab page.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body">
+                        <div class="step-action">Google Calendar will open</div>
+                        <div class="step-detail">You'll see the weekly calendar view for your member account.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-body">
+                        <div class="step-action">Confirm you're signed in as your member account</div>
+                        <div class="step-detail">Check the top right — it should show your <strong>@members.sgf.co</strong> address, managed by gwh.co.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-body">
+                        <div class="step-action">Click "+ Create"</div>
+                        <div class="step-detail">The blue button in the top-left corner of Google Calendar.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">6</div>
+                    <div class="step-body">
+                        <div class="step-action">Select "Event"</div>
+                        <div class="step-detail">Choose Event from the dropdown — not Task or Reminder.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">7</div>
+                    <div class="step-body">
+                        <div class="step-action">Type your event name</div>
+                        <div class="step-detail">Your name, company, or what you're working on — e.g. "Sean — Deep Work".</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">8</div>
+                    <div class="step-body">
+                        <div class="step-action">Set your start time</div>
+                        <div class="step-detail">Click the time field and select when you plan to arrive.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">9</div>
+                    <div class="step-body">
+                        <div class="step-action">Set your end time</div>
+                        <div class="step-detail">Select when you'll wrap up.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">10</div>
+                    <div class="step-body">
+                        <div class="step-action">Confirm your time window looks correct</div>
+                        <div class="step-detail">You can also adjust via the Duration field if needed.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">11</div>
+                    <div class="step-body">
+                        <div class="step-action">Click "Add rooms or location"</div>
+                        <div class="step-detail">This is where you pick the actual space you want to reserve.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">12</div>
+                    <div class="step-body">
+                        <div class="step-action">Click "Add rooms" → "Browse all rooms & resources"</div>
+                        <div class="step-detail">This shows the full list of available spaces at SGF.work.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">13</div>
+                    <div class="step-body">
+                        <div class="step-action">Select "SGF Flagship 01"</div>
+                        <div class="step-detail">This is our main location.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">14</div>
+                    <div class="step-body">
+                        <div class="step-action">Choose your space</div>
+                        <div class="step-detail">Pick the specific desk or room — e.g. <strong>Hot Desk 1</strong>. Only available spaces will appear.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">15</div>
+                    <div class="step-body">
+                        <div class="step-action">Click "Go back" to return to the event</div>
+                        <div class="step-detail">Your selected room will now be attached to the event.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">16</div>
+                    <div class="step-body">
+                        <div class="step-action">Review your booking details</div>
+                        <div class="step-detail">Confirm the time, room, and name all look correct.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">17</div>
+                    <div class="step-body">
+                        <div class="step-action">Click "Save" — you're booked! 🎉</div>
+                        <div class="step-detail">The space is reserved under your member account and will appear on your calendar.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tip">
+                <span class="tip-icon">💡</span>
+                <span>Unavailable spaces will be crossed out when browsing rooms. If a desk is already taken during your time window, it will be crossed out.</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Need Help?</h2>
+            <p>If you run into any issues booking a space, reach out at <a href="mailto:hello@sgf.work" style="color:var(--primary-color);">hello@sgf.work</a> or stop by the front desk.</p>
         </div>
 
         <a href="/" class="back-link">
@@ -185,6 +410,7 @@
             </svg>
             Back to Home
         </a>
+
     </main>
 
 </body>
