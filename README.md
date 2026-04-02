@@ -64,7 +64,7 @@ To contribute to this project:
 
 ## License
 
-This project is part of Global Workspace Holdings. Please see the repository settings for licensing information.
+This project is part of Global Workspace Holdings. See LICENCE Tab.
 
 ## Support
 
